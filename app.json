@@ -1,7 +1,8 @@
 {
   "pages":[
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/todo/index"
   ],
   "window":{
     "backgroundTextStyle":"light",
@@ -14,8 +15,8 @@
       "pagePath": "pages/index/index",
       "text": "首页"
     }, {
-      "pagePath": "pages/logs/logs",
-      "text": "日志"
+      "pagePath": "pages/todo/index",
+      "text": "待办"
     }]
   },
   "networkTimeout": {

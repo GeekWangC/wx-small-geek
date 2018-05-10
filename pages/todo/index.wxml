@@ -1,0 +1,12 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="todo-contain" wx:key="name" wx:for="{{todoList}}" wx:for-index="idx" wx:for-item="todo">
+    <view>{{todo.value}}</view>
+  </view>
+  <view class="section">
+    <input placeholder="给盒子添点儿东西" bindinput="bindKeyInput"/>
+    <view class="btn-add-todo">
+      <button bindtap="dbAddTodo">添加</button>
+    </view>
+  </view>
+</view>

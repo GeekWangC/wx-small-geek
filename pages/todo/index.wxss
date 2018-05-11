@@ -1,6 +1,31 @@
-.todo-contain {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.todo-container{
+	width: 100%;
+	height: 100%;
+	display: flex;
+  	flex-direction: column;
+  	padding: 40rpx;
+}
+.todo-container .todo-contain {
+	height: 100%;
+  	display: flex;
+  	flex-direction: column;
+  	flex: 1;
+  	overflow: auto;
+  	overflow-y: auto;
+}
+.todo-container .section{
+	width: 100%;
+	height: 50px;
+	display: flex;
+}
+.section-date{
+	display: flex;
+	height: 100rpx;
+}
+
+.todo{
+	width: 100%;
+	height: 50px;
+	/*position: absolute;*/
 }
 

@@ -1,3 +1,4 @@
 {
-  "navigationBarTitleText": "待办箱"
+  "navigationBarTitleText": "待办箱",
+  "disableScroll":true
 }

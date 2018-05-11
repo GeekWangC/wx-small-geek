@@ -1,7 +1,21 @@
 <!--index.wxml-->
-<view class="container">
-  <view class="todo-contain" wx:key="name" wx:for="{{todoList}}" wx:for-index="idx" wx:for-item="todo">
-    <view>{{todo.value}}</view>
+<view class="todo-container">
+  <view class="section-date">
+    <view class="section-date-title">日期选择</view>
+    <picker mode="date" value="{{date}}" start="2018-05-01" end="2020-09-01" bindchange="bindDateChange">
+      <view class="picker">
+        {{currentTime}}
+      </view>
+    </picker>
+  </view>
+  <view class="todo-contain">
+    <view  wx:key="name" wx:for="{{todoList}}" wx:for-index="idx" wx:for-item="todo"> 
+      <view style="{{todo.txtStyle}}" class="todo" bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" data-index="{{idx}}">{{todo.value}}</view>
+      <!-- <view class="posit">
+        <view class="editor" data-addressid="{{item.address.ID}}" catchtap="setDefaultAddress">设为默认地址</view>
+        <view class="del" data-addressid="{{todo.name}}" data-index="{{idx}}" catchtap="delAddress">删除</view>
+      </view> -->
+    </view>
   </view>
   <view class="section">
     <input placeholder="给盒子添点儿东西" bindinput="bindKeyInput"/>

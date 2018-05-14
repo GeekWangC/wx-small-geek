@@ -9,7 +9,7 @@
       <open-data class="userinfo-nickname" type="userNickName"></open-data>
     </block>
   </view>
-  <view class="usermotto">
+  <view class="usermotto" bindtap="bindViewTap">
     <text class="user-motto">{{motto}}</text>
   </view>
 </view>

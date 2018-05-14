@@ -8,15 +8,16 @@
       </view>
     </picker>
   </view>
-  <view class="todo-contain">
-    <view  wx:key="name" wx:for="{{todoList}}" wx:for-index="idx" wx:for-item="todo"> 
-      <view style="{{todo.txtStyle}}" class="todo" bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" data-index="{{idx}}">{{todo.value}}</view>
-      <!-- <view class="posit">
-        <view class="editor" data-addressid="{{item.address.ID}}" catchtap="setDefaultAddress">设为默认地址</view>
-        <view class="del" data-addressid="{{todo.name}}" data-index="{{idx}}" catchtap="delAddress">删除</view>
-      </view> -->
+  <scroll-view scroll-y class="todo-contain">
+    <view class="todo-single" wx:key="name" wx:for="{{todoList}}" wx:for-index="idx" wx:for-item="todo"> 
+      <view style="{{todo.txtStyle}}" class="todo" bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" data-index="{{idx}}">
+        <span>{{todo.value}}</span>
+      </view>
+      <view class="del" data-addressid="{{todo.name}}" data-index="{{idx}}" catchtap="dbDelTodo">
+        <span data-index="{{idx}}">删除</span>
+      </view>
     </view>
-  </view>
+  </scroll-view>
   <view class="section">
     <input placeholder="给盒子添点儿东西" bindinput="bindKeyInput"/>
     <view class="btn-add-todo">

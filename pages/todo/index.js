@@ -19,18 +19,17 @@ Page({
   },
   dbGetTodo:function(){//公共事件-获取待办
     try {
-      const todoList = wx.getStorageSync(`DB-TODOLIST${this.data.currentTime}`)
-      if (todoList) {
-        this.setData({
-          "todoList":todoList
-        })
-      }
+      const todoList = wx.getStorageSync(`DB-TODOLIST${this.data.currentTime}`) || [];
+      this.setData({
+        "todoList":todoList
+      })
     } catch (e) {
 
     }
   },
   dbAddTodo:function(){//公共事件-事件绑定-添加待办
-    const { todoList,currentTime } = this.data;
+    const { currentTime } = this.data;
+    const todoList = wx.getStorageSync(`DB-TODOLIST${currentTime}`) || [];
     const todo = {
       name:`DB-TODO${new Date().getTime()}`,
       value:this.data.inputValue,
@@ -44,6 +43,24 @@ Page({
       } catch (e) {    
       }
     })  
+  },
+  dbDelTodo:function(e){//公共事件-事件绑定-删除待办
+    const todoList = wx.getStorageSync(`DB-TODOLIST${this.data.currentTime}`) || [];
+    if(todoList.length > 0){
+      todoList.splice(e.target.dataset.index || 0,1);
+      console.warn(e.target.dataset.index);
+      this.setData({
+        todoList:todoList
+      },()=>{
+        try {
+          wx.setStorageSync(`DB-TODOLIST${this.data.currentTime}`, todoList);
+        } catch (e) {    
+        }
+      })
+    }else{
+      return;
+    }
+
   },
   commonGetTimer:function(selData,cb){//公共事件-返回当前时间
     const currentData = selData || new Date();

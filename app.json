@@ -2,7 +2,8 @@
   "pages":[
     "pages/index/index",
     "pages/logs/logs",
-    "pages/todo/index"
+    "pages/todo/index",
+    "pages/schedule/schedule"
   ],
   "window":{
     "backgroundTextStyle":"light",

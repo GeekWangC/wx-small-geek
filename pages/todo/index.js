@@ -9,6 +9,13 @@ Page({
     startX:"",//记录触摸起始位置的X坐标
     delBtnWidth:"150rpx",//删除按钮的宽度
   },
+
+  bindGotoSchedule: function(e){// 事件绑定-前往日程表
+    wx.navigateTo({
+      url: '/pages/schedule/schedule?id=1'
+    })
+  },
+
   bindKeyInput: function(e) {//事件绑定-同步input值
     this.setData({
       inputValue: e.detail.value

@@ -1,0 +1,19 @@
+<!--index.wxml-->
+<view class="schedule-container">
+  <view class="section-date">
+    <view class="section-date-title">日期选择</view>
+    <picker mode="date" value="{{date}}" start="2018-05-01" end="2020-09-01" bindchange="bindDateChange">
+      <view class="picker">
+        {{currentTime}}
+      </view>
+    </picker>
+  </view>
+  <scroll-view scroll-y class="schedule-contain">
+    <view class="schedule-single" wx:key="key" wx:for="{{scheduleList}}" wx:for-index="idx" wx:for-item="schedule"> 
+      <view class="schedule" data-index="{{idx}}">
+        <span>{{schedule.name}}</span>
+        <input placeholder="这边是空的" value="{{schedule.value}}" />
+      </view>
+    </view>
+  </scroll-view>
+</view>
